@@ -37,7 +37,6 @@ public class Post {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
     private User user;
-
     private Instant createDate;
 
     @ManyToOne(fetch = LAZY)
