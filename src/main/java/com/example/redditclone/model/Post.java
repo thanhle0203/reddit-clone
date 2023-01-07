@@ -2,6 +2,10 @@ package com.example.redditclone.model;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +13,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
@@ -23,7 +30,6 @@ public class Post {
     @GeneratedValue(strategy = IDENTITY)
     private Long postId;
 
-    @NotBlank(message = "Post Name cannot be empty or NULl")
     private String postName;
 
     @Nullable

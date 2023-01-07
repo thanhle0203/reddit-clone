@@ -1,35 +1,30 @@
 package com.example.redditclone.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import org.jetbrains.annotations.NotNull;
-import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+
+import java.time.Instant;
 
 @NoArgsConstructor
-@Entity
 @Builder
-public class Vote {
+@Entity
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long voteId;
-    private VoteType voteType;
+    private Long id;
 
-    @NotNull
+    private String text;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "postId", referencedColumnName = "postId")
     private Post post;
+    private Instant createdDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", referencedColumnName = "userId")
-    private  User user;
+    private User user;
 
 
 }

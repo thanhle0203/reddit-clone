@@ -2,11 +2,12 @@ package com.example.redditclone.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 
@@ -22,14 +23,13 @@ public class Subreddit
     @GeneratedValue(strategy = IDENTITY)
     private Long userId;
 
-    @NotBlank(message = "Username is required")
+    @NotNull
     private String username;
 
-    @NotBlank(message = "Password is required")
+    @NotNull
     private String password;
 
-    @Email
-    @NotEmpty(message = "Email is required")
+    @NotNull
     private String email;
 
     private Instant created;
