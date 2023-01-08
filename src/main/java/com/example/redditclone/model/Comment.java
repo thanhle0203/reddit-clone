@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.time.Instant;
 
 @NoArgsConstructor
-@Builder
 @Entity
 public class Comment {
     @Id

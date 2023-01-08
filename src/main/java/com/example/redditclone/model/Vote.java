@@ -1,21 +1,12 @@
 package com.example.redditclone.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import javax.persistence.*;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 
-@NoArgsConstructor
 @Entity
-@Builder
 public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

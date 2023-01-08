@@ -1,8 +1,6 @@
 package com.example.redditclone.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +8,7 @@ import lombok.NonNull;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -21,18 +20,20 @@ public class Subreddit
 {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long userId;
+    private Long id;
 
     @NotNull
-    private String username;
+    private String name;
 
     @NotNull
-    private String password;
+    private String description;
 
-    @NotNull
-    private String email;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Post> posts;
 
     private Instant created;
-    private boolean enabled;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
 }
